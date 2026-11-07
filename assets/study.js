@@ -149,14 +149,18 @@
       if (!timed && qn >= total) return finish();
       if (!order.length) order = shuffle(all);
       cur = order.shift(); locked = false; qn++;
-      const s = side(), d = DECKS[cur.deck];
+      // alphabet questions always show the letter, since a word would give its letter away
+      const s = cur.deck === 'alphabet' ? 'fwd' : side(), d = DECKS[cur.deck];
       const ask = s === 'fwd' ? cur.a : cur.b; answer = s === 'fwd' ? cur.b : cur.a;
       $('pl').textContent = (s === 'fwd' ? d.front : d.back) + ' → ' + (s === 'fwd' ? d.back : d.front);
       $('pt').textContent = ask;
       // distractors from the same deck when possible
       const same = all.filter(x => x.deck === cur.deck && x.id !== cur.id);
       const src = same.length >= 3 ? same : all.filter(x => x.id !== cur.id);
-      const opts = shuffle([answer, ...shuffle(src).slice(0, 3).map(x => s === 'fwd' ? x.b : x.a)]);
+      const wrong = cur.deck === 'alphabet'
+        ? shuffle(DECOYS[cur.a].filter(w => w !== answer)).slice(0, 3)
+        : shuffle(src).slice(0, 3).map(x => s === 'fwd' ? x.b : x.a);
+      const opts = shuffle([answer, ...wrong]);
       $('ch').innerHTML = opts.map((o, i) => `<button class="choice" data-v="${esc(o)}"><kbd>${i + 1}</kbd><span>${esc(o)}</span></button>`).join('');
       if (!timed) { $('qn').textContent = qn; $('pg').style.width = ((qn - 1) / total * 100) + '%'; }
     }

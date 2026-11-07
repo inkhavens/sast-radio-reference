@@ -75,5 +75,36 @@ const SIGNALS = [
   ['Code 5', 'Felony stop or high risk stop'],
 ];
 
+// Wrong answers for the alphabet quiz. Each starts with the same letter so the first letter gives nothing away.
+// Many come from older radio alphabets (APCO police: Adam, Boy, Charles. WWII: Able, Baker, Dog).
+const DECOYS = {
+  A: ['Alpha', 'Able', 'Adam', 'Apple', 'Amber'],
+  B: ['Baker', 'Boy', 'Bruno', 'Beta'],
+  C: ['Charles', 'Cast', 'Cobra', 'Chicago'],
+  D: ['Dog', 'David', 'Dixie', 'Dagger'],
+  E: ['Easy', 'Edward', 'Eagle', 'Echelon'],
+  F: ['Fox', 'Frank', 'Falcon', 'Freddie'],
+  G: ['George', 'Gamma', 'Gulf', 'Granite'],
+  H: ['How', 'Henry', 'Harry', 'Hawk'],
+  I: ['Item', 'Ida', 'Indigo', 'Iris'],
+  J: ['Jig', 'John', 'Juliet', 'Jupiter'],
+  K: ['King', 'Kite', 'Kappa', 'Kevin'],
+  L: ['Love', 'Lincoln', 'Leader', 'London'],
+  M: ['Mary', 'Mother', 'Metro', 'Monkey'],
+  N: ['Nan', 'Nora', 'Nectar', 'Nancy'],
+  O: ['Oboe', 'Ocean', 'Omega', 'Orange'],
+  P: ['Peter', 'Paul', 'Panther', 'Polo'],
+  Q: ['Queen', 'Quota', 'Quarter', 'Quail'],
+  R: ['Roger', 'Robert', 'Rover', 'Radio'],
+  S: ['Sugar', 'Sam', 'Sunset', 'Signal'],
+  T: ['Tare', 'Tom', 'Tiger', 'Topaz'],
+  U: ['Uncle', 'Union', 'Ultra', 'Utah'],
+  V: ['Vector', 'Victory', 'Viking', 'Violet'],
+  W: ['William', 'Walter', 'Winter', 'Wolf'],
+  X: ['Xerox', 'Xylo', 'Xenon', 'Xavier'],
+  Y: ['Yoke', 'Young', 'Yellow', 'Yogi'],
+  Z: ['Zebra', 'Zero', 'Zeta', 'Zone'],
+};
+
 // Codes that matter most on a busy channel get a marker on the reference page
 const PRIORITY = new Set(['10-13', '10-32', '10-99', 'Signal 100', '10-80', '10-70']);
