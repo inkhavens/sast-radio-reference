@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>10 Codes | SAST Radio Reference</title>
+<meta name="description" content="San Andreas State Troopers 10 code reference for Project Tropics RP.">
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500;700;800&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="assets/logo.png" alt="SAST patch"><div><b>San Andreas State Troopers</b><span>Radio Reference</span></div></a>
+  <nav>
+    <a href="index.html">Phonetic Alphabet</a>
+    <a href="codes.html" aria-current="page">10 Codes</a>
+    <a href="study.html" class="study">Study</a>
+  </nav>
+</div></header>
+
+<main>
+  <section class="intro">
+    <p class="eyebrow">Project Tropics RP handbook</p>
+    <h1>10 Codes</h1>
+    <p>The official radio codes for the server. Keep transmissions short and use the code instead of explaining.</p>
+  </section>
+
+  <section class="search">
+    <input class="field" id="q" type="search" placeholder="Search by code or meaning, like 10-80 or pursuit" autocomplete="off" aria-label="Search codes">
+    <span class="count" id="count"></span>
+    <span class="legend"><span></span>Priority traffic</span>
+  </section>
+
+  <section>
+    <h2>Standard 10 Codes</h2>
+    <div class="codes" id="ten"></div>
+  </section>
+
+  <section>
+    <h2>Signals and Special Codes</h2>
+    <div class="codes" id="sig"></div>
+  </section>
+</main>
+<footer>San Andreas State Troopers &middot; Codes from the Project Tropics RP official 10 code handbook</footer>
+
+<script src="assets/data.js"></script>
+<script>
+const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+function render(list, el, q) {
+  const hits = list.filter(([c, m]) => !q || c.toLowerCase().includes(q) || m.toLowerCase().includes(q) || c.replace('-', '').includes(q));
+  el.innerHTML = hits.map(([c, m]) => `<div class="code${PRIORITY.has(c) ? ' hot' : ''}"><span class="c">${esc(c)}</span><span class="m">${esc(m)}</span></div>`).join('')
+    || '<p class="empty">No codes match.</p>';
+  return hits.length;
+}
+const qEl = document.getElementById('q');
+function run() {
+  const q = qEl.value.trim().toLowerCase();
+  const n = render(TEN_CODES, document.getElementById('ten'), q) + render(SIGNALS, document.getElementById('sig'), q);
+  document.getElementById('count').textContent = `${n} of ${TEN_CODES.length + SIGNALS.length} codes`;
+}
+qEl.addEventListener('input', run); run();
+</script>
+</body>
+</html>

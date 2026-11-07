@@ -1,0 +1,79 @@
+// SAST radio reference data. Phonetic alphabet (ICAO and NATO) and the Project Tropics RP 10 code handbook.
+const ALPHABET = [
+  ['A', 'Alfa'], ['B', 'Bravo'], ['C', 'Charlie'], ['D', 'Delta'], ['E', 'Echo'], ['F', 'Foxtrot'],
+  ['G', 'Golf'], ['H', 'Hotel'], ['I', 'India'], ['J', 'Juliett'], ['K', 'Kilo'], ['L', 'Lima'],
+  ['M', 'Mike'], ['N', 'November'], ['O', 'Oscar'], ['P', 'Papa'], ['Q', 'Quebec'], ['R', 'Romeo'],
+  ['S', 'Sierra'], ['T', 'Tango'], ['U', 'Uniform'], ['V', 'Victor'], ['W', 'Whiskey'], ['X', 'X-ray'],
+  ['Y', 'Yankee'], ['Z', 'Zulu'],
+];
+
+const NUMBERS = [
+  ['0', 'Zero'], ['1', 'One'], ['2', 'Two'], ['3', 'Three'], ['4', 'Four'],
+  ['5', 'Five'], ['6', 'Six'], ['7', 'Seven'], ['8', 'Eight'], ['9', 'Nine'],
+];
+
+const TEN_CODES = [
+  ['10-1', 'Frequency change'],
+  ['10-3', 'Stop transmitting'],
+  ['10-4', 'Affirmative'],
+  ['10-5', 'Meal break'],
+  ['10-6', 'Busy'],
+  ['10-7', 'Out of service'],
+  ['10-8', 'In service'],
+  ['10-9', 'Repeat transmission'],
+  ['10-10', 'Fight in progress'],
+  ['10-11', 'Traffic stop'],
+  ['10-12', 'Active ride along'],
+  ['10-13', 'Shots fired'],
+  ['10-15', 'Suspect in custody and transporting to station'],
+  ['10-16', 'Stolen vehicle'],
+  ['10-17', 'Suspicious person'],
+  ['10-20', 'Location'],
+  ['10-22', 'Disregard'],
+  ['10-23', 'Arrived on scene'],
+  ['10-25', 'Domestic dispute or disturbance'],
+  ['10-26', 'ETA (estimated time of arrival)'],
+  ['10-27', 'License check for valid'],
+  ['10-28', 'Plate check for valid'],
+  ['10-29', 'NCIC warrant check'],
+  ['10-30', 'Wanted person'],
+  ['10-31', 'Not wanted, no warrants'],
+  ['10-32', 'Request backup (Code 1, 2 or 3)'],
+  ['10-35', 'Wrap the scene up'],
+  ['10-41', 'Beginning of shift'],
+  ['10-42', 'Ending of shift'],
+  ['10-43', 'Information'],
+  ['10-49', 'Homicide'],
+  ['10-50', 'Vehicle accident'],
+  ['10-51', 'Request tow'],
+  ['10-52', 'Request EMS'],
+  ['10-53', 'Request Fire Department'],
+  ['10-55', 'Intoxicated driver'],
+  ['10-56', 'Intoxicated pedestrian'],
+  ['10-60', 'Person armed with a gun'],
+  ['10-61', 'Person armed with a knife'],
+  ['10-62', 'Kidnapping'],
+  ['10-64', 'Sexual assault'],
+  ['10-65', 'Escorting prisoner'],
+  ['10-66', 'Reckless driver'],
+  ['10-67', 'Fire'],
+  ['10-68', 'Armed robbery'],
+  ['10-70', 'Foot pursuit'],
+  ['10-71', 'Request supervisor'],
+  ['10-73', 'Advise status'],
+  ['10-80', 'Vehicle pursuit'],
+  ['10-97', 'En route'],
+  ['10-99', 'Officer distress (extreme emergency only)'],
+  ['11-44', 'Person deceased'],
+];
+
+const SIGNALS = [
+  ['Signal 11', 'Running radar'],
+  ['Signal 100', 'Hold all but emergency traffic'],
+  ['Code Zero', 'Game crash'],
+  ['Code 4', 'Under control, call over'],
+  ['Code 5', 'Felony stop or high risk stop'],
+];
+
+// Codes that matter most on a busy channel get a marker on the reference page
+const PRIORITY = new Set(['10-13', '10-32', '10-99', 'Signal 100', '10-80', '10-70']);

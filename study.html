@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Study | SAST Radio Reference</title>
+<meta name="description" content="Study the phonetic alphabet and 10 codes with flashcards, quizzes, a speed round and a plate drill.">
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500;700;800&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="index.html"><img src="assets/logo.png" alt="SAST patch"><div><b>San Andreas State Troopers</b><span>Radio Reference</span></div></a>
+  <nav>
+    <a href="index.html">Phonetic Alphabet</a>
+    <a href="codes.html">10 Codes</a>
+    <a href="study.html" class="study" aria-current="page">Study</a>
+  </nav>
+</div></header>
+
+<main id="app">
+  <!-- setup screen -->
+  <section id="setup" class="stage">
+    <div class="intro">
+      <p class="eyebrow">Training</p>
+      <h1>Study</h1>
+      <p>Pick what to study and how. Your progress is saved in this browser.</p>
+    </div>
+
+    <div class="group">
+      <b>1. What to study</b>
+      <div class="toggle" id="decks"></div>
+    </div>
+
+    <div class="group">
+      <b>2. How to study</b>
+      <div class="modes" id="modes">
+        <button class="mode" data-mode="flash" aria-pressed="true"><b>Flashcards</b><span>Flip each card. Cards you miss come back until you know them.</span></button>
+        <button class="mode" data-mode="quiz" aria-pressed="false"><b>Quiz</b><span>15 multiple choice questions with a score and streak.</span></button>
+        <button class="mode" data-mode="speed" aria-pressed="false"><b>Speed Round</b><span>Answer as many as you can in 60 seconds.</span></button>
+        <button class="mode" data-mode="plate" aria-pressed="false"><b>Plate Drill</b><span>Read a San Andreas plate back in phonetics, like on a 10-28.</span></button>
+      </div>
+    </div>
+
+    <div class="group" id="dirGroup">
+      <b>3. Direction</b>
+      <div class="toggle" id="dir">
+        <button data-dir="fwd" aria-pressed="true">Code to meaning</button>
+        <button data-dir="rev" aria-pressed="false">Meaning to code</button>
+        <button data-dir="mix" aria-pressed="false">Mixed</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <button class="btn primary" id="start">Start</button>
+      <span class="hint" id="setupHint"></span>
+    </div>
+
+    <div class="group">
+      <b>Your mastery</b>
+      <div class="mastery" id="mastery"></div>
+      <div class="row"><span class="hint" id="bests"></span><button class="btn" id="reset" style="margin-left:auto">Reset progress</button></div>
+      <p class="hint" id="resetNote" hidden>Press Reset progress again to confirm.</p>
+    </div>
+  </section>
+
+  <!-- session screen -->
+  <section id="session" class="stage" hidden></section>
+</main>
+<footer>San Andreas State Troopers &middot; Office of the Commissioner</footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/study.js"></script>
+</body>
+</html>
